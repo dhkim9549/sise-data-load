@@ -365,7 +365,7 @@ public class HelloWorld implements CommandLineRunner {
 
                 log.info("etlOlpr() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COE221M_OLPR_BS.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COE221M_OLPR_SU.txt"));
 
                 String s = "";
                 int i = 0;
@@ -377,7 +377,7 @@ public class HelloWorld implements CommandLineRunner {
                                 log.info("i = " + i);
                         }
 
-                        String[] parts = s.split("\t");
+                        String[] parts = s.split("\\|");
 			/*
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
@@ -523,7 +523,7 @@ public class HelloWorld implements CommandLineRunner {
 
 		log.info("run() start...");
 
-		etlEhpr();
+		etlOlpr();
 
 		log.info("run() end...");
 
