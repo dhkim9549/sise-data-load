@@ -1,10 +1,6 @@
 == What You Will Build
 
-You will create a batch program which load sise data from txt files into MySQL database.
-
-NOTE: MySQL is licensed with the GPL, so any program binary that you distribute with it
-must use the GPL, too. See the
-https://www.gnu.org/licenses/gpl.html[GNU General Public Licence].
+You will create a batch program which will load sise data from text files into MySQL database.
 
 == What You Need
 
@@ -17,3 +13,19 @@ https://www.gnu.org/licenses/gpl.html[GNU General Public Licence].
 See the following guide. 
 
 https://github.com/spring-guides/gs-accessing-data-mysql
+
+== Build Java code
+
+To try out the build, issue the following at the command line:
+
+----
+mvn compile
+----
+
+This will run Maven, telling it to execute the _compile_ goal. When it's finished, you should find the compiled _.class_ files in the _target/classes_ directory.
+
+----
+mvn spring-boot:run
+----
+
+This will run the batch program.
