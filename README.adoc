@@ -32,7 +32,7 @@ This will run Maven, telling it to execute the _compile_ goal. When it's finishe
 ./mvnw spring-boot:run
 ----
 
-This will run the batch program. The batch program will 
+This will run the batch program. The batch program will automatically create DB tables.
 
 == Create indexes on the DB tables
 * CREATE INDEX ix_addr ON tb_addr (city_cd, sggu_cd, emd_cd);
