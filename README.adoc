@@ -1,0 +1,45 @@
+== What You Will Build
+
+You will create a batch program which will load sise data from text files into MySQL database.
+
+== What You Need
+
+* https://dev.mysql.com/downloads/[MySQL] version 5.6 or better.
+
+* java_version: 1.8
+
+== Create the Database
+
+See the following guide. 
+
+https://github.com/spring-guides/gs-accessing-data-mysql
+
+For the HelloWorld program reference, see the following guide.
+
+https://github.com/spring-guides/gs-maven
+
+== Build Java code
+
+To try out the build, issue the following at the command line:
+
+----
+mvn compile
+----
+
+This will run Maven, telling it to execute the _compile_ goal. When it's finished, you should find the compiled _.class_ files in the _target/classes_ directory.
+
+----
+./mvnw spring-boot:run
+----
+
+This will run the batch program. The batch program will automatically create DB tables.
+
+== Create indexes on the DB tables
+* CREATE INDEX ix_addr ON tb_addr (city_cd, sggu_cd, emd_cd);
+* CREATE INDEX ix_map ON tb_map (stnm_unon_cd, sise_dvcd);
+* CREATE INDEX ix_kb_sise ON tb_kb_sise (kb_hs_dstg_no, kb_pty_seq);
+* CREATE INDEX ix_kab_sise ON tb_kab_sise (kab_dnji_no, kab_pty_no);
+* CREATE INDEX ix_olpr ON tb_olpr (twprc_dnji_no, twprc_dong_no, twprc_ho_no);
+* CREATE INDEX ix_ehpr ON tb_ehpr (lwdg_cd, ltno_bno, ltno_buno);
+
+
