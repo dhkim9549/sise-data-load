@@ -6,6 +6,8 @@ You will create a batch program which will load sise data from text files into M
 
 * https://dev.mysql.com/downloads/[MySQL] version 5.6 or better.
 
+NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing MySQL on Ubuntu 20.04: 6 Easy Steps]
+
 * java_version: 1.8
 
 == Create the Database
