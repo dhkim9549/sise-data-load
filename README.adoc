@@ -1,0 +1,19 @@
+== What You Will Build
+
+You will create a MySQL database, build a Spring application, and connect it to the newly
+created database.
+
+NOTE: MySQL is licensed with the GPL, so any program binary that you distribute with it
+must use the GPL, too. See the
+https://www.gnu.org/licenses/gpl.html[GNU General Public Licence].
+
+== What You Need
+
+* https://dev.mysql.com/downloads/[MySQL] version 5.6 or better. If you have Docker
+installed, it might be useful to run the database as a
+https://hub.docker.com/_/mysql/[container].
+
+:java_version: 1.8
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/prereq_editor_jdk_buildtools.adoc[]
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/how_to_complete_this_guide.adoc[]
