@@ -33,7 +33,7 @@ mvn compile
 This will run Maven, telling it to execute the _compile_ goal. When it's finished, you should find the compiled _.class_ files in the _target/classes_ directory.
 
 ----
-./mvnw spring-boot:run
+mvn spring-boot:run
 ----
 
 This will run the batch program. The batch program will automatically create DB tables.
