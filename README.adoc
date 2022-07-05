@@ -8,6 +8,8 @@ You will create a batch program which will load sise data from text files into M
 
 NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing MySQL on Ubuntu 20.04: 6 Easy Steps]
 
+* https://ubasti.tistory.com/4[MySql Korean character setting]
+
 * java_version: 1.8
 
 NOTE: https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04[How To Install Java with Apt on Ubuntu 22.04]
