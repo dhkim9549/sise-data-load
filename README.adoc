@@ -10,6 +10,8 @@ NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing My
 
 * java_version: 1.8
 
+NOTE: https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04[How To Install Java with Apt on Ubuntu 22.04]
+
 == Create the Database
 
 See the following guide. 
