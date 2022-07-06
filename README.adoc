@@ -14,6 +14,8 @@ NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing My
 
 NOTE: https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04[How To Install Java with Apt on Ubuntu 22.04]
 
+* https://melonicedlatte.com/2021/07/11/174700.html[스프링(Spring), 스프링 부트(Spring Boot)란? 개념 정리]
+
 == Create the Database
 
 See the following guide. 
