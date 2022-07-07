@@ -6,7 +6,15 @@ You will create a batch program which will load sise data from text files into M
 
 * https://dev.mysql.com/downloads/[MySQL] version 5.6 or better.
 
+NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing MySQL on Ubuntu 20.04: 6 Easy Steps]
+
+* https://ubasti.tistory.com/4[MySql Korean character setting]
+
 * java_version: 1.8
+
+NOTE: https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04[How To Install Java with Apt on Ubuntu 22.04]
+
+* https://melonicedlatte.com/2021/07/11/174700.html[스프링(Spring), 스프링 부트(Spring Boot)란? 개념 정리]
 
 == Create the Database
 
@@ -29,10 +37,12 @@ mvn compile
 This will run Maven, telling it to execute the _compile_ goal. When it's finished, you should find the compiled _.class_ files in the _target/classes_ directory.
 
 ----
-./mvnw spring-boot:run
+mvn spring-boot:run -Dspring-boot.run.arguments="WORK_FLAG INPUT_FILENAME MAX_CNT"
+mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR_OTHER.txt 10"
+mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR_OTHER.txt 0"
 ----
 
-This will run the batch program. The batch program will automatically create DB tables.
+This will run the batch program. The batch program will automatically create DB tables if there aren't any.
 
 == Create indexes on the DB tables
 * CREATE INDEX ix_addr ON tb_addr (city_cd, sggu_cd, emd_cd);
