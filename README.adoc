@@ -37,9 +37,18 @@ mvn compile
 This will run Maven, telling it to execute the _compile_ goal. When it's finished, you should find the compiled _.class_ files in the _target/classes_ directory.
 
 ----
+mvn clean package
+----
+
+This will make a spring-boot fat jar file.
+
+* https://stackoverflow.com/questions/38792031/springboot-making-jar-files-no-auto-configuration-classes-found-in-meta-inf[making spring-boot fat jar pom.xml addition]
+
+----
 mvn spring-boot:run -Dspring-boot.run.arguments="WORK_FLAG INPUT_FILENAME MAX_CNT"
 mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR_OTHER.txt 10"
 mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR_OTHER.txt 0"
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_OTHER.txt 10
 ----
 
 This will run the batch program. The batch program will automatically create DB tables if there aren't any.
