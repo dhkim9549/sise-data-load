@@ -37,10 +37,12 @@ mvn compile
 This will run Maven, telling it to execute the _compile_ goal. When it's finished, you should find the compiled _.class_ files in the _target/classes_ directory.
 
 ----
-mvn spring-boot:run
+mvn spring-boot:run -Dspring-boot.run.arguments="WORK_FLAG INPUT_FILENAME MAX_CNT"
+mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR_OTHER.txt 10"
+mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR_OTHER.txt 0"
 ----
 
-This will run the batch program. The batch program will automatically create DB tables.
+This will run the batch program. The batch program will automatically create DB tables if there aren't any.
 
 == Create indexes on the DB tables
 * CREATE INDEX ix_addr ON tb_addr (city_cd, sggu_cd, emd_cd);
