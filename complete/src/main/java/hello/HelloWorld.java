@@ -12,6 +12,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.beans.factory.annotation.Value;
 
 @SpringBootApplication
 public class HelloWorld implements CommandLineRunner {
@@ -40,10 +42,6 @@ public class HelloWorld implements CommandLineRunner {
 	@Autowired
         private TbEhprRepository tbEhprRepository;
 
-	public static void main(String args[]) {
-		SpringApplication.run(HelloWorld.class, args);
-	}
-
 	private void loadAddr(String[] data) {
 
 		log.debug("loadAddr() start...");
@@ -67,23 +65,24 @@ public class HelloWorld implements CommandLineRunner {
 
 	}
 
-	private void etlAddr() throws Exception {
+	private void etlAddr(String fileName, int cnt) throws Exception {
 
 		log.info("etlAddr() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COA115M_STNMGRP_ALL.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader(fileName));
 
                 String s = "";
                 int i = 0;
                 while((s = in.readLine()) != null) {
                         i++;
 			if(i == 1) continue;
+			if(cnt > 0 && i > cnt) break;
 
                         if(i % 1000 == 0) {
                                 log.info("i = " + i);
                         }
 
-                        String[] parts = s.split("\t");
+                        String[] parts = s.split("\\|");
                         /*
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
@@ -115,22 +114,25 @@ public class HelloWorld implements CommandLineRunner {
 
         }
 
-	private void etlEmd() throws Exception {
+	private void etlEmd(String fileName, int cnt) throws Exception {
 
                 log.info("etlEmd() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COA114M_EMDGRP.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader(fileName));
 
                 String s = "";
                 int i = 0;
                 while((s = in.readLine()) != null) {
                         i++;
 
+			if(i == 1) continue;
+			if(cnt > 0 && i > cnt) break;
+
                         if(i % 1000 == 0) {
                                 log.info("i = " + i);
                         }
 
-                        String[] parts = s.split("\t");
+                        String[] parts = s.split("\\|");
                         /*
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
@@ -166,22 +168,24 @@ public class HelloWorld implements CommandLineRunner {
 
         }
 
-	private void etlMap() throws Exception {
+	private void etlMap(String fileName, int cnt) throws Exception {
 
                 log.info("etlMap() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COE101R_SISEMAP.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader(fileName));
 
                 String s = "";
                 int i = 0;
                 while((s = in.readLine()) != null) {
                         i++;
+			if(i == 0) continue;
+			if(cnt > 0 && i > cnt) break;
 
                         if(i % 1000 == 0) {
                                 log.info("i = " + i);
                         }
 
-                        String[] parts = s.split("\t");
+                        String[] parts = s.split("\\|");
                         /*
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
@@ -229,11 +233,11 @@ public class HelloWorld implements CommandLineRunner {
 
         }
 
-	private void etlKbSise() throws Exception {
+	private void etlKbSise(String fileName, int cnt) throws Exception {
 
                 log.info("etlKbSise() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COE202D_KBPTYSISE.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader(fileName));
 
                 String s = "";
                 int i = 0;
@@ -241,11 +245,13 @@ public class HelloWorld implements CommandLineRunner {
 
                         i++;
                         if(i == 1) continue;
+			if(cnt > 0 && i > cnt) break;
+
                         if(i % 1000 == 0) {
                                 log.info("i = " + i);
                         }
 
-                        String[] parts = s.split("\t");
+                        String[] parts = s.split("\\|");
                         /*
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
@@ -291,11 +297,11 @@ public class HelloWorld implements CommandLineRunner {
 
         }
 
-	private void etlKabSise() throws Exception {
+	private void etlKabSise(String fileName, int cnt) throws Exception {
 
                 log.info("etlKabSise() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COE211D_KABPTYSISE.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader(fileName));
 
                 String s = "";
                 int i = 0;
@@ -303,11 +309,13 @@ public class HelloWorld implements CommandLineRunner {
 
                         i++;
                         if(i == 1) continue;
+			if(cnt > 0 && i > cnt) break;
+
                         if(i % 1000 == 0) {
                                 log.info("i = " + i);
                         }
 
-                        String[] parts = s.split("\t");
+                        String[] parts = s.split("\\|");
                         /*
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
@@ -361,11 +369,11 @@ public class HelloWorld implements CommandLineRunner {
 
         }
 
-	private void etlOlpr() throws Exception {
+	private void etlOlpr(String fileName, int cnt) throws Exception {
 
                 log.info("etlOlpr() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COE221M_OLPR_SU.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader(fileName));
 
                 String s = "";
                 int i = 0;
@@ -373,6 +381,9 @@ public class HelloWorld implements CommandLineRunner {
 
                         i++;
                         if(i == 1) continue;
+			if(cnt > 0 && i > cnt) break;
+
+			// if(i > 10) break;
                         if(i % 1000 == 0) {
                                 log.info("i = " + i);
                         }
@@ -426,11 +437,11 @@ public class HelloWorld implements CommandLineRunner {
 
         }
 
-	private void etlEhpr() throws Exception {
+	private void etlEhpr(String fileName, int cnt) throws Exception {
 
                 log.info("etlEhpr() start...");
 
-                LineNumberReader in = new LineNumberReader(new FileReader("/root/data/TB_COE222M_EHPR_ALL.txt"));
+                LineNumberReader in = new LineNumberReader(new FileReader(fileName));
 
                 String s = "";
                 int i = 0;
@@ -438,15 +449,17 @@ public class HelloWorld implements CommandLineRunner {
 
                         i++;
                         if(i == 1) continue;
+			if(cnt > 0 && i > cnt) break;
+
                         if(i % 1000 == 0) {
                                 log.info("i = " + i);
                         }
 
-                        String[] parts = s.split("\t");
-                        /*
+                        String[] parts = s.split("\\|");
+                        
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
-                        }*/
+                        }
 
                         String[] data = new String[18];
                         for(int j = 0; j < data.length; j++) {
@@ -518,12 +531,47 @@ public class HelloWorld implements CommandLineRunner {
  
 	}
 
+	public static void main(String[] args) {
+		log.info(">>>>>>>>>>>>>>>>>>>");
+		for(String arg:args) {
+			log.info(">>>" + arg);
+		}
+		SpringApplication.run(HelloWorld.class, args);
+	}
+
 	@Override
-	public void run(String... strings) throws Exception {
+	public void run(String... args) throws Exception {
 
 		log.info("run() start...");
 
-		etlOlpr();
+		for(String arg:args) {
+                        log.info("!!!>>>" + arg);
+                }
+
+		String work = args[0]; 
+		String fileName = args[1]; 
+		int cnt = Integer.parseInt(args[2]);
+
+		switch (work) {
+			case "addr":
+				etlAddr(fileName, cnt);
+				break;
+			case "map":
+				etlMap(fileName, cnt);
+				break;
+			case "kbSise":
+				etlKbSise(fileName, cnt);
+				break;
+			case "kabSise":
+				etlKabSise(fileName, cnt);
+				break;
+			case "olpr":
+				etlOlpr(fileName, cnt);
+				break;
+			case "ehpr":
+				etlEhpr(fileName, cnt);
+				break;
+		}
 
 		log.info("run() end...");
 
