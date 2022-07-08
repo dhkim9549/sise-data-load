@@ -11,8 +11,9 @@ NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing My
 * https://ubasti.tistory.com/4[MySql Korean character setting]
 
 ----
-sudo vi /etc/mysql/my.conf
+vi /etc/mysql/my.conf
 ----
+
 ----
 [client]
 default-character-set = utf8
@@ -27,14 +28,26 @@ default-character-set = utf8
 [mysql]
 default-character-set = utf8
 ----
+
 ----
 sudo service mysql restart
 ----
+
 ----
 mysql> show variables like 'c%';
 ----
 
 * https://zetawiki.com/wiki/MySQL_%EC%9B%90%EA%B2%A9_%EC%A0%91%EC%86%8D_%ED%97%88%EC%9A%A9[MySQL 원격 접속 허용]
+
+----
+vi /etc/mysql/my.cnf
+----
+
+----
+#bind-address = 127.0.0.1
+[mysqld]
+bind-address = 0.0.0.0
+----
 
 * java_version: 1.8
 
