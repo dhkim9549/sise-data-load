@@ -53,6 +53,21 @@ mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR
 java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_OTHER.txt 10
 ----
 
+----
+java -jar gs-maven-0.1.0.jar addr /root/data/TB_COA115M_STNMGRP.txt 0
+java -jar gs-maven-0.1.0.jar map /root/data/TB_COE101R_SISEMAP.txt 0
+java -jar gs-maven-0.1.0.jar kbSise /root/data/TB_COE202D_KBPTYSISE.txt 0
+java -jar gs-maven-0.1.0.jar kabSise /root/data/TB_COE211D_KABPTYSISE.txt 0
+
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_BS.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_SU.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_GG.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_IC.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_OTHER.txt 0
+
+java -jar gs-maven-0.1.0.jar ehpr /root/data/TB_COE222M_EHPR.txt 0
+----
+
 This will run the batch program. The batch program will automatically create DB tables if there aren't any.
 
 == Create indexes on the DB tables
