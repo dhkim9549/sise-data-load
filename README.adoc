@@ -63,9 +63,9 @@ java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_BS.txt 0
 java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_SU.txt 0
 java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_GG.txt 0
 java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_IC.txt 0
-java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_OTHER.txt 0
 
 java -jar gs-maven-0.1.0.jar ehpr /root/data/TB_COE222M_EHPR.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_OTHER.txt 0
 ----
 
 This will run the batch program. The batch program will automatically create DB tables if there aren't any.
