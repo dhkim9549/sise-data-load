@@ -456,10 +456,10 @@ public class HelloWorld implements CommandLineRunner {
                         }
 
                         String[] parts = s.split("\\|");
-                        
+                        /* 
                         for(int j = 0; j < parts.length; j++) {
                                 log.info("parts[" + j + "] = " + parts[j]);
-                        }
+                        }*/
 
                         String[] data = new String[18];
                         for(int j = 0; j < data.length; j++) {
