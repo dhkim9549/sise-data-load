@@ -10,6 +10,45 @@ NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing My
 
 * https://ubasti.tistory.com/4[MySql Korean character setting]
 
+----
+vi /etc/mysql/my.conf
+----
+
+----
+[client]
+default-character-set = utf8
+[mysqld]
+character-set-client-handshake=FALSE
+init_connect="SET collation_connection = utf8_general_ci"
+init_connect="SET NAMES utf8"
+character-set-server = utf8
+collation-server = utf8_general_ci
+[mysqldump]
+default-character-set = utf8
+[mysql]
+default-character-set = utf8
+----
+
+----
+sudo service mysql restart
+----
+
+----
+mysql> show variables like 'c%';
+----
+
+* https://zetawiki.com/wiki/MySQL_%EC%9B%90%EA%B2%A9_%EC%A0%91%EC%86%8D_%ED%97%88%EC%9A%A9[MySQL 원격 접속 허용]
+
+----
+vi /etc/mysql/my.cnf
+----
+
+----
+#bind-address = 127.0.0.1
+[mysqld]
+bind-address = 0.0.0.0
+----
+
 * java_version: 1.8
 
 NOTE: https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04[How To Install Java with Apt on Ubuntu 22.04]
@@ -51,10 +90,25 @@ mvn spring-boot:run -Dspring-boot.run.arguments="olpr /root/data/TB_COE221M_OLPR
 java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_OTHER.txt 10
 ----
 
+----
+java -jar gs-maven-0.1.0.jar addr /root/data/TB_COA115M_STNMGRP.txt 0
+java -jar gs-maven-0.1.0.jar map /root/data/TB_COE101R_SISEMAP.txt 0
+java -jar gs-maven-0.1.0.jar kbSise /root/data/TB_COE202D_KBPTYSISE.txt 0
+java -jar gs-maven-0.1.0.jar kabSise /root/data/TB_COE211D_KABPTYSISE.txt 0
+
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_BS.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_SU.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_GG.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_IC.txt 0
+
+java -jar gs-maven-0.1.0.jar ehpr /root/data/TB_COE222M_EHPR.txt 0
+java -jar gs-maven-0.1.0.jar olpr /root/data/TB_COE221M_OLPR_OTHER.txt 0
+----
+
 This will run the batch program. The batch program will automatically create DB tables if there aren't any.
 
 == Create indexes on the DB tables
-* CREATE INDEX ix_addr ON tb_addr (city_cd, sggu_cd, emd_cd);
+* CREATE INDEX ix_addr ON tb_addr (lwdg_cd);
 * CREATE INDEX ix_map ON tb_map (stnm_unon_cd, sise_dvcd);
 * CREATE INDEX ix_kb_sise ON tb_kb_sise (kb_hs_dstg_no, kb_pty_seq);
 * CREATE INDEX ix_kab_sise ON tb_kab_sise (kab_dnji_no, kab_pty_no);
