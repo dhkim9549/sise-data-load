@@ -553,6 +553,9 @@ public class HelloWorld implements CommandLineRunner {
 		int cnt = Integer.parseInt(args[2]);
 
 		switch (work) {
+			case "emd" :
+				makeEmdJson();
+				break;
 			case "addr":
 				etlAddr(fileName, cnt);
 				break;
