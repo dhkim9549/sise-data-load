@@ -59,6 +59,9 @@ public class HelloWorld implements CommandLineRunner {
 		n.setLtnoAddr(data[9]);
 		n.setStnmAddr(data[10]);
 		n.setLwdgCd(data[11].substring(0, 8));
+		n.setStnm(data[12]);
+		n.setBldgBno(data[13]);
+		n.setBldgBuno(data[14]);
                 tbAddrRepository.save(n);
 
 		log.debug("loadAddr() end...");
@@ -88,7 +91,7 @@ public class HelloWorld implements CommandLineRunner {
                                 log.info("parts[" + j + "] = " + parts[j]);
                         }*/
 
-                        String[] data = new String[12];
+                        String[] data = new String[15];
                         for(int j = 0; j < data.length; j++) {
                                 data[j] = parts[j];
                         }

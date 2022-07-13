@@ -105,4 +105,28 @@ public class TbAddr {
 	public void setLwdgCd(String lwdgCd) {
 		this.lwdgCd = lwdgCd;
 	}
+
+	private String stnm;
+        public String getStnm() {
+                return stnm;
+        }
+        public void setStnm(String stnm) {
+                this.stnm = stnm;
+        }
+
+	private String bldgBno;
+        public String getBldgBno() {
+                return bldgBno;
+        }
+        public void setBldgBno(String bldgBno) {
+                this.bldgBno = bldgBno;
+        }
+
+	private String bldgBuno;
+        public String getBldgBuno() {
+                return bldgBuno;
+        }
+        public void setBldgBuno(String bldgBuno) {
+                this.bldgBuno = bldgBuno;
+        }
 }
