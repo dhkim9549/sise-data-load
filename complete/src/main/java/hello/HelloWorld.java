@@ -1,6 +1,7 @@
 package hello;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import java.io.LineNumberReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -41,6 +42,9 @@ public class HelloWorld implements CommandLineRunner {
 
 	@Autowired
         private TbEhprRepository tbEhprRepository;
+
+	@Autowired
+        private TbEmmRepository tbEmmRepository;
 
 	private void loadAddr(String[] data) {
 
@@ -155,6 +159,37 @@ public class HelloWorld implements CommandLineRunner {
                 log.info("etlEmd() end...");
         }
 
+	private void loadEmm() {
+
+		log.debug("loadEmm() start...");
+
+		Gson gson = new Gson();
+
+		TbEmm n = new TbEmm();
+		n.setSeq(0);
+		n.setJson(gson.toJson(new HashMap()));
+		tbEmmRepository.save(n);
+
+		HashMap map = new HashMap();
+		map.put("hsPrc", 239203990000L);
+		n = new TbEmm();
+		n.setSeq(1);
+		n.setJson(gson.toJson(map));
+		tbEmmRepository.save(n);
+	
+		log.debug("loadEmm() end...");
+
+	}
+
+	private void etlEmm() throws Exception {
+
+		log.info("etlEmm() start...");
+
+		loadEmm();
+
+		log.info("etlEmm() end...");
+	}
+
 	private void loadMap(String[] data) {
 
                 log.debug("loadMap() start...");
@@ -181,7 +216,7 @@ public class HelloWorld implements CommandLineRunner {
                 int i = 0;
                 while((s = in.readLine()) != null) {
                         i++;
-			if(i == 0) continue;
+			if(i == 1) continue;
 			if(cnt > 0 && i > cnt) break;
 
                         if(i % 1000 == 0) {
@@ -576,6 +611,9 @@ public class HelloWorld implements CommandLineRunner {
 				break;
 			case "ehpr":
 				etlEhpr(fileName, cnt);
+				break;
+			case "emm" :
+				etlEmm();
 				break;
 		}
 
